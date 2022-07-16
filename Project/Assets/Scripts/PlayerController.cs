@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _verticalMultiplier = 0.8f;
     private Vector2 _movementDir = Vector2.zero;
 
+    [Header("Weapons")]
+    [SerializeField] private Weapon _weapon = null;
+
     private void Awake()
     {
         _playerInput = new PlayerInputActions();
@@ -76,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attack");
+        if (_weapon == null) return;
+
+        _weapon.DoAttack();
     }
 }
