@@ -17,8 +17,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Weapons")]
     [SerializeField] private LayerMask _aimLayer = 0;
+    [SerializeField] private float _weaponOffset = 0.65f;
     [SerializeField] private Transform _weaponRoot = null;
-    [SerializeField] private Weapon _weapon = null;
+    [SerializeField] private GameObject _weaponPrefab = null;
+    private Weapon _weapon = null;
     private Camera _camera = null;
     private bool _useGamepad = false;
     private Vector2 _aimDir = Vector2.zero;
@@ -32,6 +34,10 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
+
+        GameObject weapon = Instantiate(_weaponPrefab, _weaponRoot);
+        weapon.transform.localPosition = new Vector3(_weaponOffset, 0f, 0f);
+        _weapon = weapon.GetComponent<Weapon>();
     }
 
     private void OnEnable()
