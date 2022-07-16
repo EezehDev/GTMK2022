@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2903203241062470217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2903203241335025516}
   - component: {fileID: 2903203241335025519}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,9 +128,9 @@ GameObject:
   - component: {fileID: 2369282879850745834}
   - component: {fileID: 8058492943979042804}
   - component: {fileID: 7926705315725740847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,6 +252,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2903203241062470217}
     m_Modifications:
+    - target: {fileID: 143919286373653485, guid: 81ba2c752d3663f409c0bb0efbffcaff, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409418664607052893, guid: 81ba2c752d3663f409c0bb0efbffcaff, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005068264416919499, guid: 81ba2c752d3663f409c0bb0efbffcaff, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712861438350371806, guid: 81ba2c752d3663f409c0bb0efbffcaff, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6192098126099165561, guid: 81ba2c752d3663f409c0bb0efbffcaff, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -299,6 +315,14 @@ PrefabInstance:
     - target: {fileID: 7635584787522446081, guid: 81ba2c752d3663f409c0bb0efbffcaff, type: 3}
       propertyPath: m_Name
       value: BowTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635584787522446081, guid: 81ba2c752d3663f409c0bb0efbffcaff, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117532524780446226, guid: 81ba2c752d3663f409c0bb0efbffcaff, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81ba2c752d3663f409c0bb0efbffcaff, type: 3}
