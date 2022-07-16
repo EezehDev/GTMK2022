@@ -10,6 +10,11 @@ public class RangedWeapon : Weapon
     [SerializeField] private float _damage = 1f;
     [SerializeField] private float _speed = 1f;
 
+    private void Awake()
+    {
+        _isMelee = false;
+    }
+
     public override void DoAttack()
     {
         if (_projectilePrefab == null) return;

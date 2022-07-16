@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask _aimLayer = 0;
     [SerializeField] private Transform _weaponRoot = null;
     [SerializeField] private Transform _weaponOffset = null;
+    [SerializeField] private Animator _weaponAnimator = null;
     [SerializeField] private GameObject _weaponPrefab = null;
     private Weapon _weapon = null;
     private Camera _camera = null;
@@ -137,7 +138,11 @@ public class PlayerController : MonoBehaviour
             angle = Mathf.Atan2(aimDir.y, aimDir.x);
         }
 
-        _weaponRoot.eulerAngles = new Vector3(0f, 0f, angle * Mathf.Rad2Deg);
+        angle *= Mathf.Rad2Deg;
+        if (_weapon.IsMelee())
+            angle -= 90f;
+
+        _weaponRoot.eulerAngles = new Vector3(0f, 0f, angle);
     }
 
     private void Attack()
@@ -145,5 +150,8 @@ public class PlayerController : MonoBehaviour
         if (_weapon == null) return;
 
         _weapon.DoAttack();
+
+        if (_weapon.IsMelee())
+            _weaponAnimator.SetTrigger("Melee");
     }
 }
