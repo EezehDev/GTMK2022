@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _weaponOffset = null;
     [SerializeField] private Animator _weaponAnimator = null;
     [SerializeField] private GameObject _weaponPrefab = null;
+    private bool _isAttacking = false;
     private Weapon _weapon = null;
     private Camera _camera = null;
     private bool _useGamepad = false;
@@ -57,6 +58,8 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.Move.Enable();
         _playerInput.Player.Attack.performed += OnAttack;
         _playerInput.Player.Attack.Enable();
+        _playerInput.Player.Attack.canceled += OnAttack;
+        _playerInput.Player.Attack.Enable();
         _playerInput.Player.AimDirection.performed += OnDirection;
         _playerInput.Player.AimDirection.Enable();
 
@@ -68,6 +71,8 @@ public class PlayerController : MonoBehaviour
         _playerInput.Player.Move.performed -= OnMove;
         _playerInput.Player.Move.Disable();
         _playerInput.Player.Attack.performed -= OnAttack;
+        _playerInput.Player.Attack.Disable();
+        _playerInput.Player.Attack.canceled -= OnAttack;
         _playerInput.Player.Attack.Disable();
         _playerInput.Player.AimDirection.performed -= OnDirection;
         _playerInput.Player.AimDirection.Disable();
@@ -94,7 +99,9 @@ public class PlayerController : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext context)
     {
         if (context.performed)
-            Attack();
+            _isAttacking = true;
+        else if (context.canceled)
+            _isAttacking = false;
     }
     #endregion
 
@@ -102,6 +109,9 @@ public class PlayerController : MonoBehaviour
     {
         UpdateMovement();
         UpdateAim();
+
+        if (_isAttacking)
+            Attack();
     }
 
     private void UpdateMovement()

@@ -128,3 +128,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMelee: 1
   _effects: []
+  _attackSpeed: 5
+  _damage: 1
